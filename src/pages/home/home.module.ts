@@ -3,7 +3,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
 import { HomePage } from './home';
-import { ContentDrawer } from '../../components/content-drawer/content-drawer';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
