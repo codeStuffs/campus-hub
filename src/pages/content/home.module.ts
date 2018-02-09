@@ -2,22 +2,21 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
-import { ContentPage } from './content';
+import { HomePage } from './home';
 import { ContentDrawer } from '../../components/content-drawer/content-drawer';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
-   ContentPage,
-   //ContentDrawer
+   HomePage,
   ],
   imports: [
-    IonicPageModule.forChild(ContentPage),
+    IonicPageModule.forChild(HomePage),
     TranslateModule.forChild(),
     ComponentsModule,
   ],
   exports: [
-    ContentPage
+    HomePage
   ]
 })
-export class ContentPageModule { }
+export class HomePageModule { }

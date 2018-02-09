@@ -12,6 +12,7 @@ import { DomController, Platform } from "ionic-angular";
   selector: "content-drawer",
   templateUrl: "content-drawer.html"
 })
+
 export class ContentDrawer {
   @Input("options") options: any;
 
@@ -63,9 +64,9 @@ export class ContentDrawer {
     );
 
     let hammer = new window["Hammer"](this.element.nativeElement);
-    hammer.get("tap").set({ direction: window["Hammer"].DIRECTION_VERTICAL });
+    hammer.get("swipe").set({ direction: window["Hammer"].DIRECTION_VERTICAL });
 
-    hammer.on("tap", ev => {
+    hammer.on("swipe", ev => {
       this.handlePan(ev);
     });
   }
