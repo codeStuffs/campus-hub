@@ -9,5 +9,6 @@ import { NewsandeventsPage } from './newsandevents';
   imports: [
     IonicPageModule.forChild(NewsandeventsPage),
   ],
+  exports: [NewsandeventsPage]
 })
 export class NewsandeventsPageModule {}
