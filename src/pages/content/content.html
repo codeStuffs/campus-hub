@@ -1,13 +1,53 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar>
     <ion-title>
       Content
     </ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  <p>
-    This is a perfect starting point for a page with primarily text content. The body is padded nicely and ready for prose.
-  </p>
+  Map here
 </ion-content>
+
+<content-drawer [(options)]="drawerOptions">
+  <div class="content">
+    <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="tile">
+            <div class="card-title">
+                <ion-icon ios="ios-paper" md="md-paper"></ion-icon>
+            </div>
+            <div class="card-subtitle">News & Events</div>
+      </ion-card>
+      </ion-col>
+      <ion-col>
+          <ion-card class="tile">
+              <div class="card-title">
+                  <ion-icon ios="ios-home" md="md-home"></ion-icon>
+              </div>
+              <div class="card-subtitle">Buildings</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <ion-card class="tile">
+              <div class="card-title">
+                  <ion-icon ios="ios-quote" md="md-quote"></ion-icon>
+              </div>
+              <div class="card-subtitle">Other</div>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+          <ion-card class="tile">
+              <div class="card-title">
+                  <ion-icon ios="ios-person" md="md-person"></ion-icon>
+              </div>
+              <div class="card-subtitle">My Account</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</content-drawer>

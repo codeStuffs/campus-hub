@@ -1,3 +1,34 @@
-page-home {
 
-}
+  page-content {
+    ion-card {
+      text-align: center;
+    }
+
+    .card-title {
+      top: 36%;
+      font-size: 2em;
+      width: 100%;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .card-subtitle {
+      font-size: 1em;
+
+      top: 52%;
+      width: 100%;
+      color: #000000;
+    }
+    .tile {
+      text-align: center;
+      padding: 15px;
+    }
+
+    content-drawer {
+      background-color: #34495e !important;
+    }
+
+    content-drawer .content {
+      padding: 20px;
+    }
+  }

@@ -8,6 +8,14 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class ContentPage {
 
-  constructor(public navCtrl: NavController) { }
+  drawerOptions: any;
 
+  constructor(public navCtrl: NavController) { 
+    this.drawerOptions = {
+      handleHeight: 50,
+      thresholdFromBottom: 200,
+      thresholdFromTop: 200,
+      bounceBack: true
+    };
+  }
 }

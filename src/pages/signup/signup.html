@@ -12,12 +12,12 @@
     <ion-list>
 
       <ion-item>
-        <ion-label fixed>{{ 'NAME' | translate }}</ion-label>
+        <ion-label floating>{{ 'NAME' | translate }}</ion-label>
         <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
       </ion-item>
 
@@ -29,10 +29,19 @@
         <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
       </ion-item>
       -->
+      <ion-item>
+        <ion-label floating>School</ion-label>
+        <ion-input type="text" [(ngModel)]="account.school" name="school"></ion-input>
+      </ion-item>    
 
       <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Confirm password</ion-label>
+        <ion-input type="password" [(ngModel)]="account.cpassword" name="cpassword"></ion-input>
       </ion-item>
 
       <div padding>

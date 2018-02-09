@@ -1,3 +1,3 @@
 # Content
 
-The content page is a simple page meant for text content.
+This page will contain the menu and a map on the top side
