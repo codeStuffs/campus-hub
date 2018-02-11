@@ -15,11 +15,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventsPage');
+  }
+
+  readEvent(){
+    const event = {
+      photo: ''
+    }
+    this.navCtrl.push('EventsDetailsPage', {
+      event: event
+    })
   }
 
 }

@@ -1,3 +1,22 @@
 page-events {
 
+    ion-label{
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    .date-thumb{
+        width: inherit;
+        color: indigo;
+        background-color: white;
+        text-align: center;
+        line-height: 1;
+        margin-top: 20px;
+    }
+
+    .end_date{
+        font-size: 1rem;
+    }
+
+
 }

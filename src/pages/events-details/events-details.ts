@@ -14,12 +14,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'events-details.html',
 })
 export class EventsDetailsPage {
-
+  eventDetail: any;
+  conferenceDate;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.eventDetail = navParams.get('event');
+    this.conferenceDate = new Date();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventsDetailsPage');
   }
+
+  
 
 }

@@ -13,6 +13,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-news-detail',
   templateUrl: 'news-detail.html',
 })
+
 export class NewsDetailPage {
   newsDetail: any;
   constructor(public navCtrl: NavController, navParams: NavParams) {
