@@ -10,7 +10,7 @@ import { Tab1Root, Tab2Root } from '../pages';
 })
 
 export class HomePage {
-  
+
   drawerOptions: any;
 
   constructor(public navCtrl: NavController) { 
@@ -21,11 +21,9 @@ export class HomePage {
       bounceBack: true
     };
   }
-  
+
   gotoPage() {
-   //this.navCtrl.push(Tab1Root);
-  // this.nav.setRoot("Tab1Root");
-  //this.rootPage = "Tab1Root";
-   this.navCtrl.setRoot(Tab1Root);
+  // this.navCtrl.push(Tab1Root); // Used this method in other to add a back button
+   this.navCtrl.setRoot(Tab1Root); // mostlikely this should be used
   }
 }

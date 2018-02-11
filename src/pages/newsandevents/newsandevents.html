@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>newsandevents</ion-title>
+    <ion-title>News & Events</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+      <button ion-item (click)="openNews('news')">
+          <h2>News</h2>
+          <ion-note >Current News on Campus</ion-note>
+      </button>
+      <button ion-item (click)="openEvents('events')">
+          <h2>Events</h2>
+          <ion-note >View all events on Campus</ion-note>
+      </button>
+  </ion-list>
 </ion-content>
