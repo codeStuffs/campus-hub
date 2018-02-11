@@ -14,7 +14,7 @@
     <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card class="tile" (click)="gotoPage()">
+        <ion-card class="tile" (click)="gotoPage('news')">
             <div class="card-title">
                 <ion-icon ios="ios-paper" md="md-paper"></ion-icon>
             </div>
@@ -22,11 +22,11 @@
       </ion-card>
       </ion-col>
       <ion-col>
-          <ion-card class="tile">
+          <ion-card class="tile" (click)="gotoPage('building')">
               <div class="card-title">
                   <ion-icon ios="ios-home" md="md-home"></ion-icon>
               </div>
-              <div class="card-subtitle">Buildings</div>
+              <div  class="card-subtitle">Buildings</div>
         </ion-card>
       </ion-col>
     </ion-row>

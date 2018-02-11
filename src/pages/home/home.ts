@@ -13,7 +13,7 @@ export class HomePage {
 
   drawerOptions: any;
 
-  constructor(public navCtrl: NavController) { 
+  constructor(public navCtrl: NavController) {
     this.drawerOptions = {
       handleHeight: 50,
       thresholdFromBottom: 200,
@@ -22,8 +22,14 @@ export class HomePage {
     };
   }
 
-  gotoPage() {
+  gotoPage(page) {
   // this.navCtrl.push(Tab1Root); // Used this method in other to add a back button
-   this.navCtrl.setRoot(Tab1Root); // mostlikely this should be used
+    if(page === "building"){
+      this.navCtrl.setRoot(Tab2Root);
+    }else if (page === "news"){
+      this.navCtrl.setRoot(Tab1Root); // mostlikely this should be used
+    }
+
+
   }
 }

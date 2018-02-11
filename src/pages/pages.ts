@@ -7,6 +7,6 @@ export const MainPage = 'MenuPage';  // set the default root to menu page instea
 
 // The initial root pages for our tabs (remove if not using tabs)
 export const Tab1Root = 'NewsandeventsPage'; //'ListMasterPage';
-export const Tab2Root = 'SearchPage';
+export const Tab2Root = 'BuildingsPage';
 export const Tab3Root = 'SettingsPage';
 export const Tab4Root = 'SettingsPage';
