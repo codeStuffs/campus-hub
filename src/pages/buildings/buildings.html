@@ -1,0 +1,41 @@
+<!--
+  Generated template for the BuildingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Building</ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <button ion-item >
+      <h2>International Office</h2>
+      <ion-note > Campus international Office</ion-note>
+      <ion-icon name="ios-arrow-forward" icon-only item-right></ion-icon>
+    </button>
+
+    <button ion-item (click)="openPage('faculties')">
+      <h2>Faculty</h2>
+      <ion-note > Campus Faculties</ion-note>
+      <ion-icon name="ios-arrow-forward" icon-only item-right></ion-icon>
+    </button>
+
+    <button ion-item >
+      <h2>Dormitory</h2>
+      <ion-note >Campus Dormitory</ion-note>
+      <ion-icon name="ios-arrow-forward" icon-only item-right></ion-icon>
+    </button>
+  </ion-list>
+</ion-content>
