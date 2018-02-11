@@ -21,7 +21,7 @@ export class EventsPage {
     console.log('ionViewDidLoad EventsPage');
   }
 
-  readEvent(){
+  readEvent() {
     const event = {
       photo: ''
     }
