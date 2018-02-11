@@ -18,16 +18,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 export class NewsandeventsPage {
 
-  // A reference to the ion-nav in our component
-
-  rootPage: any = 'TabsPage';
-
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewsandeventsPage');
+  }
+
+  /**
+   * Navigate to the detail page for this item.
+   */
+  openNews(item) {
+    if(item === 'news'){
+      this.navCtrl.push('NewsPage');
+    }
+  }
+
+  openEvents(item){
+    if(item === 'events'){
+      this.navCtrl.push('EventsPage')
+    }
   }
 
 }

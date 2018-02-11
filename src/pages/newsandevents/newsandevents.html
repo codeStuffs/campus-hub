@@ -15,19 +15,13 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="../../assets/img/speakers/bear.jpg">
-      </ion-thumbnail>
-      <ion-label>
-        <p class="date-posted">Date poste</p>
-        <h2 padding-top>Title here</h2>
-        <h3>Just sub</h3>
-        <p>
-          Just another breif Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste asperiores incidunt fuga, doloribus dolore
-          facilis tempore laborum odio, voluptate itaque veniam blanditiis ab, illum est omnis commodi labore! Optio, adipisci.
-        </p>
-      </ion-label>
-    </ion-item>
+      <button ion-item (click)="openNews('news')">
+          <h2>News</h2>
+          <ion-note >Current News on Campus</ion-note>
+      </button>
+      <button ion-item (click)="openEvents('events')">
+          <h2>Events</h2>
+          <ion-note >View all events on Campus</ion-note>
+      </button>
   </ion-list>
 </ion-content>

@@ -64,9 +64,9 @@ export class ContentDrawer {
     );
 
     let hammer = new window["Hammer"](this.element.nativeElement);
-    hammer.get("swipe").set({ direction: window["Hammer"].DIRECTION_VERTICAL });
+    hammer.get("pan").set({ direction: window["Hammer"].DIRECTION_VERTICAL });
 
-    hammer.on("swipe", ev => {
+    hammer.on("pan", ev => {
       this.handlePan(ev);
     });
   }
