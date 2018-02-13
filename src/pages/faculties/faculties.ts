@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the FacultiesPage page.
@@ -15,11 +15,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FacultiesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FacultiesPage');
   }
 
+  openFaculty(){
+    const details = {
+      name: "My Faculty",
+      pictures: {},
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque consequuntur voluptatem nobis provident minus! Dolorum, eius ut adipisci, quod quas maxime accusantium error id accusamus aut qui praesentium commodi impedit",
+    }
+    let modal = this.modalCtrl.create('BuildingDetailPage', {data: details});
+    modal.present();
+  }
 }

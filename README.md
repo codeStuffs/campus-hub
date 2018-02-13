@@ -86,3 +86,7 @@ code (ex: en/gb/de/es/etc.).
 
 To change the language of the app, edit `src/app/app.component.ts` and modify
 `translate.use('en')` to use the LANGCODE from `src/assets/i18n/`
+
+### Map Api to use
+
+https://developer.here.com/
