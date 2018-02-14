@@ -8,6 +8,7 @@
 
 
 <ion-content>
+  <h3>Sign Up here</h3>
   <form (submit)="doSignup()">
     <ion-list>
 
@@ -31,8 +32,11 @@
       -->
       <ion-item>
         <ion-label floating>School</ion-label>
-        <ion-input type="text" [(ngModel)]="account.school" name="school"></ion-input>
-      </ion-item>    
+        <ion-select name="school" [(ngModel)]="account.school">
+          <ion-option value="nes">School One</ion-option>
+          <ion-option value="n64">School two</ion-option>
+        </ion-select>
+      </ion-item>
 
       <ion-item>
         <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
