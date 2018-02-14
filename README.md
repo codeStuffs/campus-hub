@@ -1,6 +1,6 @@
 # Campus Hub 🎮
 
-<img src="https://user-images.githubusercontent.com/236501/32385619-bddac0ac-c08c-11e7-9ee4-9c892197191f.png" width="400" />
+<!-- <img src="https://user-images.githubusercontent.com/236501/32385619-bddac0ac-c08c-11e7-9ee4-9c892197191f.png" width="400" /> -->
 
 One of the big advances in Ionic was moving from a rigid route-based navigation
 system to a flexible push/pop navigation system modeled off common native SDKs.
