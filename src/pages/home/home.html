@@ -14,7 +14,7 @@
     <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card class="tile" (click)="gotoPage('news')">
+        <ion-card  no-shadow class="tile" (click)="gotoPage('news')">
             <div class="card-title">
                 <ion-icon ios="ios-paper" md="md-paper"></ion-icon>
             </div>
@@ -34,17 +34,27 @@
       <ion-col>
           <ion-card class="tile">
               <div class="card-title">
-                  <ion-icon ios="ios-quote" md="md-quote"></ion-icon>
+                  <ion-icon name="md-cube"></ion-icon>
               </div>
-              <div class="card-subtitle">Other</div>
+              <div class="card-subtitle">Facilities</div>
         </ion-card>
       </ion-col>
       <ion-col>
-          <ion-card class="tile">
+          <ion-card  no-shadow class="tile">
               <div class="card-title">
-                  <ion-icon ios="ios-person" md="md-person"></ion-icon>
+                  <ion-icon name="person"></ion-icon>
               </div>
               <div class="card-subtitle">My Account</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <ion-card class="tile">
+              <div class="card-title">
+                  <ion-icon name="md-megaphone"></ion-icon>
+              </div>
+              <div class="card-subtitle">Annoucemnts</div>
         </ion-card>
       </ion-col>
     </ion-row>
