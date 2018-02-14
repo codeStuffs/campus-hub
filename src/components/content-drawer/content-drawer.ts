@@ -55,7 +55,7 @@ export class ContentDrawer {
     this.renderer.setElementStyle(
       this.element.nativeElement,
       "top",
-      this.platform.height() - 350 + "px"
+      this.platform.height() - 450 + "px"
     );
     this.renderer.setElementStyle(
       this.element.nativeElement,
