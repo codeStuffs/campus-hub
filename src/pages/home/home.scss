@@ -9,6 +9,11 @@
         display: block;
       }
     }
+
+    ion-icon{
+      text-shadow: 0px 0px 0px;
+      color: $button-text-color!important;
+    }
     .button-md, .button-ios{
       height: auto!important;
       font-weight: 200;
@@ -34,15 +39,17 @@
     .tile {
       text-align: center;
       padding: 15px;
+      background: white; //TODO -> change/adjust to percivable/clickable button
     }
 
     
 
     content-drawer {
-      background-color: #34495e !important;
+      background-color: $base-color !important;
     }
 
     content-drawer .content {
       padding: 20px;
+      background: #fff;
     }
   }

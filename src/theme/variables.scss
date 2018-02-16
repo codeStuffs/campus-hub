@@ -18,6 +18,8 @@ $base-color:  #30c9e8;
 $input-text-color : #3A4A4D;
 $button-text-color: #3A4A4D;
 
+$toolbar-background: #fff;
+
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -40,7 +42,9 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+.button-ios {
+  color: $button-text-color;
+}
 
 
 
@@ -48,7 +52,13 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
+.button-md {
+  color: $button-text-color;
+}
 
+.item-md{
+  color: $button-text-color!important;
+}
 
 
 // App Windows Variables
