@@ -96,7 +96,7 @@ export class ContentDrawer {
           "transition",
           "top 0.5s"
         );
-        this.renderer.setElementStyle(this.element.nativeElement, "top", "250px");
+        this.renderer.setElementStyle(this.element.nativeElement, "top", "190px");
       });
     } else if (
       (this.platform.height() - newTop < this.thresholdBottom &&
