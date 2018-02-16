@@ -20,7 +20,7 @@
 <ion-content padding>
   <ion-list>
 
-    <button ion-item >
+    <button ion-item  (click)="openPage('io')">
       <h2>International Office</h2>
       <ion-note > Campus international Office</ion-note>
       <ion-icon name="ios-arrow-forward" icon-only item-right></ion-icon>
@@ -32,9 +32,9 @@
       <ion-icon name="ios-arrow-forward" icon-only item-right></ion-icon>
     </button>
 
-    <button ion-item >
+    <button ion-item (click)="openPage('dorms')" >
       <h2>Dormitory</h2>
-      <ion-note >Campus Dormitory</ion-note>
+      <ion-note >Campus Dormitories</ion-note>
       <ion-icon name="ios-arrow-forward" icon-only item-right></ion-icon>
     </button>
   </ion-list>
