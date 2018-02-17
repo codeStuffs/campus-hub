@@ -1,16 +1,14 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Nav, NavController } from 'ionic-angular';
+import { Component, ViewChild } from "@angular/core";
+import { IonicPage, Nav, NavController } from "ionic-angular";
 
-import { Tab1Root, Tab2Root, Tab3Root,Tab4Root } from '../pages';
+import { Tab1Root, Tab2Root } from "../pages";
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: "page-home",
+  templateUrl: "home.html"
 })
-
 export class HomePage {
-
   drawerOptions: any;
 
   constructor(public navCtrl: NavController) {
@@ -23,15 +21,18 @@ export class HomePage {
   }
 
   gotoPage(page) {
-  // this.navCtrl.push(Tab1Root); // Used this method in other to add a back button
-    if(page === "building"){
-      this.navCtrl.setRoot(Tab2Root);
-    }else if (page === "news"){
-      this.navCtrl.setRoot(Tab1Root); // mostlikely this should be used
-    }else if (page === "facilities"){
-      this.navCtrl.setRoot(Tab3Root);;
+    // this.navCtrl.push(Tab1Root); // Used this method in other to add a back button
+
+    switch (page) {
+      case "facilties":
+        this.navCtrl.setRoot("FacilitiesPage");
+        break;
+      case "buildings":
+        this.navCtrl.setRoot(Tab2Root);
+        break;
+      case "news":
+        this.navCtrl.setRoot(Tab1Root); // mostlikely this should be used
+        break;
     }
-
-
   }
 }

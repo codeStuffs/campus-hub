@@ -1,15 +1,16 @@
-<ion-header no-border>
+<!-- <ion-header no-border>
   <ion-navbar>
     <ion-title>
       Content
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 <ion-content padding>
   Map here
 </ion-content>
 
 <content-drawer [(options)]="drawerOptions">
+  
   <div class="content">
     <ion-grid>
     <ion-row>
@@ -22,7 +23,7 @@
       </ion-card>
       </ion-col>
       <ion-col>
-          <ion-card class="tile" (click)="gotoPage('building')">
+          <ion-card class="tile" (click)="gotoPage('buildings')">
               <div class="card-title">
                   <ion-icon ios="ios-home" md="md-home"></ion-icon>
               </div>
@@ -32,7 +33,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-          <ion-card class="tile" (click)="gotoPage('facilities')">
+          <ion-card class="tile" (click)="gotoPage('facilties')">
               <div class="card-title">
                   <ion-icon name="md-cube"></ion-icon>
               </div>

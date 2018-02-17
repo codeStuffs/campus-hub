@@ -28,6 +28,9 @@ export class BuildingsPage {
       case"faculties":
         this.navCtrl.push("FacultiesPage");
         break;
+      case"io":
+        this.navCtrl.push("BuildingDetailPage");
+        break;
     }
   }
 }

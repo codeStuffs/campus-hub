@@ -1,2 +1,26 @@
 page-login {
+
+    ion-content{
+        background-color: $base-color!important;
+    }
+   
+    h3{
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    .login-form-container{
+        padding: 4px;
+        background: #fff;
+        margin: 0 5px 0 5px;
+        border-radius: 4px 5px 5px 5px;
+    }
+    ion-item{
+        background-color: inherit!important;
+        color: $input-text-color!important;
+        padding-left: 0px;
+    }
+    form{
+        padding-top: 25px;
+    }
 }

@@ -12,9 +12,13 @@ $font-path: "../assets/fonts";
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
-$text-color:        #000;
-$background-color:  #fff;
+$text-color:        #fff;
+$background-color:  #efefef;
+$base-color:  #30c9e8;
+$input-text-color : #3A4A4D;
+$button-text-color: #3A4A4D;
 
+$toolbar-background: #fff;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -25,11 +29,12 @@ $background-color:  #fff;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
+  primary:    #fe4332,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  dark-grey: #3A4A4D
 );
 
 
@@ -37,7 +42,9 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+.button-ios {
+  color: $button-text-color;
+}
 
 
 
@@ -45,7 +52,13 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
+.button-md {
+  color: $button-text-color;
+}
 
+.item-md{
+  color: $button-text-color!important;
+}
 
 
 // App Windows Variables
