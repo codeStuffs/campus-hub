@@ -30,7 +30,7 @@ export class MyApp {
   rootPage = FirstRunPage;
 
   @ViewChild(Nav) nav: Nav;
-  @Input('swipeEnabled') menuSwipe; // TODO: activate on user log in
+  //@Input('swipeEnabled') menuSwipe; // TODO: activate on user log in
 
   pages: any[] = [
     { title: 'Home', component: 'HomePage' },
