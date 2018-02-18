@@ -8,7 +8,9 @@ page-welcome {
     background-repeat: repeat-x;
     animation: animatedBackground 40s linear infinite;
   }
-
+  ion-content{
+    background-color: $base-color!important;
+  }
   @keyframes animatedBackground {
     from { background-position: 0 0; }
     to { background-position: 100% 0; }
