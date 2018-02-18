@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,7 +8,7 @@ import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 @Component({
-  template: `<ion-menu [content]="content">
+  template: `<ion-menu [content]="content" [swipeEnabled]="false">
     <ion-header>
       <ion-toolbar>
         <ion-title>Navigation</ion-title>
@@ -30,6 +30,7 @@ export class MyApp {
   rootPage = FirstRunPage;
 
   @ViewChild(Nav) nav: Nav;
+  @Input('swipeEnabled') menuSwipe; // TODO: activate on user log in
 
   pages: any[] = [
     { title: 'Home', component: 'HomePage' },
