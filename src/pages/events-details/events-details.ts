@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the EventsDetailsPage page.
@@ -16,7 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class EventsDetailsPage {
   eventDetail: any;
   conferenceDate;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController,
+     public navParams: NavParams) {
     this.eventDetail = navParams.get('event');
     this.conferenceDate = new Date();
   }
@@ -25,6 +26,9 @@ export class EventsDetailsPage {
     console.log('ionViewDidLoad EventsDetailsPage');
   }
 
+  dismiss(){
+    this.viewCtrl.dismiss();
+  }
   
 
 }

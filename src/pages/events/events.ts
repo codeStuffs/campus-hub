@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the EventsPage page.
@@ -15,7 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController,
+     public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventsPage');
@@ -25,9 +26,10 @@ export class EventsPage {
     const event = {
       photo: ''
     }
-    this.navCtrl.push('EventsDetailsPage', {
+    const modal =this.modalCtrl.create('EventsDetailsPage', {
       event: event
     })
+    modal.present();
   }
 
 }
