@@ -42,19 +42,39 @@
   <!-- three tabs conditionally show buttons that is needed -->
   <div class="tabs tabs-dark tabs-icon-top static">
     <button ion-button clear (click)="ActivateSection($event, 'info')" class="tab-item">
-      <ion-icon class="icon " name="call"></ion-icon>
+      <ion-icon class="tab-icon " name="call"></ion-icon>
       Call
     </button>
 
     <button ion-button clear (click)="ActivateSection($event, 'siblings')" class="tab-item">
-      <ion-icon class="icon" name="globe"></ion-icon>
+      <ion-icon class="tab-icon" name="globe"></ion-icon>
       Website
     </button>
 
     <button ion-button clear class="tab-item" class="tab-item">
-      <ion-icon class="icon " name="bookmark"></ion-icon>
-       Favourite
+      <ion-icon class="tab-icon " name="bookmark"></ion-icon>
+      Favourite
     </button>
   </div>
+
+
+  <ion-list inset no-lines class="buiding-info">
+    <ion-item>
+      <ion-icon name="clock" item-start></ion-icon>
+      <ion-label>Openning Hours</ion-label>
+      <div item-end>8:00 am - 4:00 pm</div>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-icon name="calendar" item-start></ion-icon>
+      <ion-label>End Date</ion-label>
+      <div item-end>Feb 13, 2018</div>
+    </ion-item> -->
+  </ion-list>
+
+  <p padding>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, vero cupiditate, enim, ipsum ab ratione officiis obcaecati
+    minus quibusdam mollitia quisquam sapiente asperiores earum omnis laboriosam qui deleniti harum illum.
+  </p>
 
 </ion-content>
