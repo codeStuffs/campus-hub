@@ -1,15 +1,17 @@
-<ion-header>
+<ion-header no-border>
 
   <ion-navbar>
-    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
+    <!-- <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title> -->
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <h3>Sign Up here</h3>
-  <form (submit)="doSignup()">
+  <h3>{{ 'SIGNUP_TITLE' | translate }}</h3>
+
+  <div class="sign-up">
+  <form (submit)="doSignup()" class="sign-up-form">
     <ion-list>
 
       <ion-item>
@@ -54,4 +56,5 @@
 
     </ion-list>
   </form>
+</div>
 </ion-content>

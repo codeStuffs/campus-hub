@@ -2,7 +2,25 @@ page-signup {
 
     h3{
         text-align: center;
-        margin-top: 50px;
+        margin-top: 30px;
         margin-bottom: 50px;
+    }
+    ion-content{
+        background: $base-color!important;
+    }
+
+    .sign-up{
+        padding: 4px;
+        background: #fff;
+        margin: 0 5px 0 5px;
+        border-radius: 4px 5px 5px 5px;
+    }
+    form{
+        padding: 5px;
+    }
+    ion-item{
+        background-color: inherit!important;
+        color: $input-text-color!important;
+        padding-left: 0px;
     }
 }
