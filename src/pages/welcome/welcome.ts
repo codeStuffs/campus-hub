@@ -24,4 +24,9 @@ export class WelcomePage {
   signup() {
     this.navCtrl.push('SignupPage');
   }
+
+  ionViewWillLeave() {
+    // enable the root left menu when leaving the tutorial page
+   //this.navCtrl.pop();
+  }
 }
