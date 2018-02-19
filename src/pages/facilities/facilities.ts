@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
-/**
- * Generated class for the FacilitiesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,7 +9,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FacilitiesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public modalCtrl: ModalController,
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -23,6 +19,7 @@ export class FacilitiesPage {
   }
 
   openFacility(){
-    
+    const modal = this.modalCtrl.create('BuildingDetailPage',{data:''});
+    modal.present();
   }
 }

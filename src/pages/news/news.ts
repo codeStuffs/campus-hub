@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  ViewController,
+  ModalController
+} from "ionic-angular";
 
 /**
  * Generated class for the NewsPage page.
@@ -10,27 +16,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-news',
-  templateUrl: 'news.html',
+  selector: "page-news",
+  templateUrl: "news.html"
 })
-
 export class NewsPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NewsPage');
+    console.log("ionViewDidLoad NewsPage");
   }
 
-  openNews(news){
+  openNews(news) {
     news = {
-      profilePic: 'assets/img/speakers/bear.jpg',
+      profilePic: "assets/img/speakers/bear.jpg",
       title: "News Title"
-    }
+    };
 
-    this.navCtrl.push("NewsDetailPage", {
-      news: news
-    })
+    // this.navCtrl.push("NewsDetailPage", {
+     // news: news
+   // });
+    const modal = this.modalCtrl.create('NewsDetailPage', {news: news});
+      modal.present();
+    
   }
 
 }

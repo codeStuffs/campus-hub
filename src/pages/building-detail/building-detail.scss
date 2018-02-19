@@ -2,6 +2,8 @@ page-building-detail {
   ion-content {
     background-color: #f1efef !important;
   }
+
+
   ion-slides {
     height: 35% !important;
   }
@@ -17,8 +19,23 @@ page-building-detail {
     z-index: 5;
     position: absolute;
   }
-  ion-icon {
+  ion-icon.tab-icon {
     font-size: 28px !important;
+  }
+
+  .buiding-info {
+    ion-item{
+      font-size: 1.2rem;
+      .item-inner{
+        margin-left: 10px;
+      }
+    }
+  }
+
+  p{
+    color: $dark-grey;
+    padding-top: 0px!important; 
+    line-height: 1.5;
   }
   .static {
     position: static;

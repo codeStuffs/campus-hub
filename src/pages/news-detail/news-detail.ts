@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the NewsDetailPage page.
@@ -16,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 export class NewsDetailPage {
   newsDetail: any;
-  constructor(public navCtrl: NavController, navParams: NavParams) {
+  constructor(public navCtrl: NavController, navParams: NavParams, public viewCtrl: ViewController) {
     this.newsDetail = navParams.get('news');
     //this.newsDetail['profilePic'] = '../../assets/img/speakers/bear.jpg';
   }
@@ -24,4 +24,8 @@ export class NewsDetailPage {
     console.log('ionViewDidLoad NewsDetailPage');
   }
 
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 }

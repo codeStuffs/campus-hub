@@ -7,15 +7,26 @@ page-events {
 
     .date-thumb{
         width: inherit;
-        color: indigo;
+        color: $button-color;
         background-color: white;
         text-align: center;
         line-height: 1;
-        margin-top: 20px;
+        //margin-top: 20px;
+        min-height: 80px;
+        min-width: 80px;
     }
 
+    .start_month{
+        padding-top: 15px;
+    }
+
+    .start_day{
+        padding-top: 5px;
+    }
     .end_date{
         font-size: 1rem;
+        padding-bottom: 8px;
+        padding-top: 5px;
     }
 
 
