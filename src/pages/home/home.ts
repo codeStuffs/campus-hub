@@ -33,6 +33,9 @@ export class HomePage {
       case "news":
         this.navCtrl.setRoot(Tab1Root); // mostlikely this should be used
         break;
+      case "profile":
+        this.navCtrl.setRoot("AccountDetailsPage"); // mostlikely this should be used
+        break;
     }
   }
 }
