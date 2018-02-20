@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, ViewController } from 'ionic-angular';
 
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
@@ -27,6 +27,7 @@ export class SignupPage {
 
   constructor(public navCtrl: NavController,
     public user: User,
+    public viewCtrl: ViewController,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
 
@@ -51,5 +52,9 @@ export class SignupPage {
       });
       toast.present();
     });
+  }
+
+  dismiss(){
+    this.viewCtrl.dismiss().catch(error =>{this.navCtrl.setRoot('WelcomePage')});
   }
 }
