@@ -1,4 +1,4 @@
-page-account-details {
+page-account {
 
   /* Hero
   ==================================*/
@@ -186,6 +186,28 @@ page-account-details {
     background-color: #444;
     color: #6781a4;
   }
+  
 
+  .tabs-item-hide > .tabs,
+  .tabs.tabs-item-hide {
+    display: none;
+  }
+
+  .item {
+    contain: inherit;
+  }
+
+  .tabs-dark {
+    button {
+      background-color: white;
+      padding: 0.1px;
+      font-size: 12px;
+    }
+    .button-inner {
+      display: flow-root;
+      text-align: center;
+      contain: content;
+    }
+  }
 
 }

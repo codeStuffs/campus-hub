@@ -1,7 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { IonicPage, Nav, NavController, MenuController } from "ionic-angular";
 
-import { Tab1Root, Tab2Root } from "../pages";
 
 @IonicPage()
 @Component({
@@ -28,13 +27,13 @@ export class HomePage {
         this.navCtrl.setRoot("FacilitiesPage");
         break;
       case "buildings":
-        this.navCtrl.setRoot(Tab2Root);
+        this.navCtrl.setRoot("BuildingsPage");
         break;
       case "news":
-        this.navCtrl.setRoot(Tab1Root); // mostlikely this should be used
+        this.navCtrl.setRoot("NewsAndEventsPage"); // mostlikely this should be used
         break;
       case "profile":
-        this.navCtrl.setRoot("AccountDetailsPage"); // mostlikely this should be used
+        this.navCtrl.push("AccountPage"); // mostlikely this should be used
         break;
     }
   }

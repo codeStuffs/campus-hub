@@ -10,16 +10,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-account-details',
-  templateUrl: 'account-details.html',
+  selector: 'page-account',
+  templateUrl: 'account.html',
 })
-export class AccountDetailsPage {
+export class AccountPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountDetailsPage');
-  }
+
 
 }
