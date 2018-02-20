@@ -37,10 +37,10 @@ export class LoginPage {
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {
       //this.viewCtrl.dismiss();
-      this.navCtrl.setRoot(MainPage);
+      this.navCtrl.setRoot('HomePage');
     }, (err) => {
       //this.viewCtrl.dismiss();
-      this.navCtrl.setRoot(MainPage);
+      this.navCtrl.setRoot('HomePage');
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: this.loginErrorString,

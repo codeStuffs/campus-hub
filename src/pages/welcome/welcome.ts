@@ -17,8 +17,9 @@ export class WelcomePage {
   constructor(public navCtrl: NavController, public modalCtrl: ModalController) { }
 
   login() {
-    const modal = this.modalCtrl.create('LoginPage');
-    modal.present();
+    // const modal = this.modalCtrl.create('LoginPage');
+    // modal.present();
+    this.navCtrl.push('LoginPage');
   }
 
   signup() {
@@ -27,6 +28,6 @@ export class WelcomePage {
 
   ionViewWillLeave() {
     // enable the root left menu when leaving the tutorial page
-   //this.navCtrl.pop();
+  // this.navCtrl.pop();
   }
 }
