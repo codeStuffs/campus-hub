@@ -30,20 +30,20 @@ export class HomePage {
         this.navCtrl.setRoot("BuildingsPage");
         break;
       case "news":
-        this.navCtrl.setRoot("NewsPage"); // mostlikely this should be used
+        this.navCtrl.setRoot("NewsAndEventsPage"); 
         break;
       case "profile":
-        this.navCtrl.push("AccountPage"); // mostlikely this should be used
+        this.navCtrl.push("AccountPage"); 
         break;
     }
   }
   ionViewDidEnter() {
-    // the root left menu should be disabled on the tutorial page
+    // disabling the right menu on the homepage
     this.menu.enable(false);
   }
 
   ionViewWillLeave() {
-    // enable the root left menu when leaving the tutorial page
+    // enable the root left menu when leaving the home page
     this.menu.enable(true);
   }
 }
