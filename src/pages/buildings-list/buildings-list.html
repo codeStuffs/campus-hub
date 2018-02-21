@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Faculty</ion-title>
+    <ion-title>{{data}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,8 +12,8 @@
   <ion-list>
 
     <button *ngFor="let f of [1,2,3,4,5]" ion-item (click)="openFaculty()">
-      <h2>Faculty of Informatics</h2>
-      <ion-note > This is the faculty for Assholes and gays</ion-note>
+      <h2>{{data}} Building</h2>
+      <ion-note > {{data}} {{data}}</ion-note>
       <ion-icon name="ios-arrow-forward" icon-only item-right></ion-icon>
     </button>
 
