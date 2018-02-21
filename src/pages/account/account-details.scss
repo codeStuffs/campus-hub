@@ -186,7 +186,7 @@ page-account {
     background-color: #444;
     color: #6781a4;
   }
-  
+
 
   .tabs-item-hide > .tabs,
   .tabs.tabs-item-hide {
@@ -209,5 +209,12 @@ page-account {
       contain: content;
     }
   }
+
+  .button-outline-md{
+    border-color: #30c9e8 ;
+    color: #30c9e8;
+  }
+
+
 
 }
