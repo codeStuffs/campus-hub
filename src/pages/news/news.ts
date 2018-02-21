@@ -41,7 +41,7 @@ export class NewsPage {
    // });
     const modal = this.modalCtrl.create('NewsDetailPage', {news: news});
       modal.present();
-    
+
   }
 
 }

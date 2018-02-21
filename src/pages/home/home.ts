@@ -30,7 +30,7 @@ export class HomePage {
         this.navCtrl.setRoot("BuildingsPage");
         break;
       case "news":
-        this.navCtrl.setRoot("NewsAndEventsPage"); // mostlikely this should be used
+        this.navCtrl.setRoot("NewsPage"); // mostlikely this should be used
         break;
       case "profile":
         this.navCtrl.push("AccountPage"); // mostlikely this should be used
