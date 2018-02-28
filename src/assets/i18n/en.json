@@ -7,6 +7,11 @@
   "PASSWORD": "Password",
   "LOGIN": "Sign in",
   "SIGNUP": "Sign up",
+  "OCCUPATION":"Occupation",
+  "CITY":"City",
+  "PHONE":"Phone",
+  "FIRSTNAME":"Firstname",
+  "LASTNAME":"Lastname",
 
   "TAB1_TITLE": "Items",
   "TAB2_TITLE": "Search",

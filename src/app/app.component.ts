@@ -7,17 +7,44 @@ import { Config, Nav, Platform } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
+/*<ion-buttons start>
+<button danger outline (click)="resetItems()">
+  <ion-icon name="create">
+  Button 1
+</ion-icon>
+</button>
+</ion-buttons>*/
+
+/*<ion-header>
+<ion-toolbar>
+
+<ion-title>Navigation</ion-title>
+</ion-toolbar>
+</ion-header>*/
+
+
 @Component({
   template: `<ion-menu [content]="content" [swipeEnabled]="false">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Navigation</ion-title>
+        <ion-buttons end>
+          <button style="background: none; font-size: 1.8rem" (click)="opensettings('SettingsPage')">
+            <ion-icon name="settings"></ion-icon>
+          </button>
+        </ion-buttons>
+        
+        <ion-title>
+          Menu
+        </ion-title>
       </ion-toolbar>
+      
+      
     </ion-header>
 
     <ion-content>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon name="{{p.icon}}" item-left></ion-icon>
           {{p.title}}
         </button>
       </ion-list>
@@ -26,25 +53,29 @@ import { Settings } from '../providers/providers';
   </ion-menu>
   <ion-nav #content [root]="rootPage"></ion-nav>`
 })
+
 export class MyApp {
   rootPage = FirstRunPage;
 
   @ViewChild(Nav) nav: Nav;
   //@Input('swipeEnabled') menuSwipe; // TODO: activate on user log in
 
+
+
   pages: any[] = [
-    { title: 'Home', component: 'HomePage' },
-    // { title: 'Tutorial', component: 'TutorialPage' },
-    // { title: 'Welcome', component: 'WelcomePage' },
-    // { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Search', component: 'SearchPage' },
+    { title: 'Home', component: 'HomePage', icon:'home' },
+    { title: 'Profile', component: 'AccountPage', icon:'person' },
+    { title: 'Building', component: 'BuildingsPage',icon:'school' },
+    { title: 'Facilities', component: 'FacilitiesPage',icon:'medal' },
+   /* { title: 'Search', component: 'SearchPage' },
     { title: 'Signup', component: 'SignupPage' },
-    { title: 'Login', component: 'LoginPage' },
-    { title: 'Master Detail', component: 'ListMasterPage' },
-    { title: 'Menu', component: 'MenuPage' },
-    { title: 'Directory', component: 'DirectoryPage' },
-    { title: 'Guide', component: 'CardsPage' },
-    { title: 'Settings', component: 'SettingsPage' }
+    { title: 'Login', component: 'LoginPage' },*/
+   /* { title: 'Master Detail', component: 'ListMasterPage' },
+    { title: 'Menu', component: 'MenuPage' ,index: 0, icon: 'calendar'  },*/
+    { title: 'Directory', component: 'DirectoryPage', icon:'contacts' },
+    { title: 'Guide', component: 'CardsPage',icon:'information-circle' },
+    /*{ title: 'Schedule', name: 'TabsPage', component: MenuPage, tabComponent: SchedulePage, index: 0, icon: 'calendar' },*/
+    /*{ title: 'Settings', component: 'SettingsPage' }*/
 
   ];
 
@@ -89,4 +120,8 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  opensettings(page){
+    this.nav.setRoot(page);
+}
 }

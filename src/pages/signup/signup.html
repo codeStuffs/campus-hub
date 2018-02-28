@@ -21,8 +21,12 @@
     <ion-list>
 
       <ion-item>
-        <ion-label floating>{{ 'NAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
+        <ion-label floating>{{ 'FIRSTNAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.fname" name="firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{ 'LASTNAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.lname" name="lastname"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -54,6 +58,21 @@
       <ion-item>
         <ion-label floating>Confirm password</ion-label>
         <ion-input type="password" [(ngModel)]="account.cpassword" name="cpassword"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'PHONE' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.phone" name="phone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'CITY' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.location" name="location"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'OCCUPATION' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.occupation" name="occupation"></ion-input>
       </ion-item>
 
       <div padding>
