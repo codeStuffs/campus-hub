@@ -28,7 +28,8 @@ import { Settings } from '../providers/providers';
     <ion-header>
       <ion-toolbar>
         <ion-buttons end>
-          <button style="background: none; font-size: 1.8rem" (click)="opensettings('SettingsPage')">
+          <button ion-button menuClose="left" style="background: none; font-size: 1.8rem" 
+                  (click)="opensettings('SettingsPage')">
             <ion-icon name="settings"></ion-icon>
           </button>
         </ion-buttons>
