@@ -15,14 +15,14 @@ export class SignupPage {
   // If you're using the username field with or without email, make
   // sure to add it to the type
   account: { fname: string,lname: string, email: string, password: string, cpassword: string,
-            phone:string, location:string, school: object, occupation:string } = {
+            phone:string, location:string, school: object, faculty:string } = {
     fname: 'Tiong',
     lname: 'Human',
     email: 'test@example.com',
     password: 'test',
     cpassword: 'test',
     phone: '+3706862510',
-    occupation:'Student',
+    faculty:'Faculty of Criminology',
     location:'Kaunas',
     school: [],
 
