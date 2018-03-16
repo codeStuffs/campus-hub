@@ -3,6 +3,10 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 
 import { Api } from '../api/api';
+import { Events } from 'ionic-angular';
+import { FirebaseProvider } from '../firebase/firebase';
+import { Settings } from '../settings/settings';
+import { UserModel } from '../../models/user';
 
 /**
  * Most apps have the concept of a User. This is a simple provider
@@ -26,46 +30,83 @@ import { Api } from '../api/api';
 @Injectable()
 export class User {
   _user: any;
+  HAS_LOGGED_IN = false;
+  HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
+  public loginError: any;
+  constructor(public api: Api,
+    public settings: Settings,
+    public events: Events,
+    public fbase: FirebaseProvider) {
 
-  constructor(public api: Api) { }
+      settings.load().then(()=>{
 
-  /**
+      })
+     }
+
+  /*
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
-  login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
-
-    seq.subscribe((res: any) => {
+  async login(accountInfo: any) {
+    try {
+      let res = await this.fbase.logInUser(accountInfo);
       // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
+      if (res) {
         this._loggedIn(res);
-      } else {
+      };
+      return res;
+    } catch (error) {
+      switch (error.code) {
+        case 'auth/network-request-failed':
+          this.loginError = error.message;
+          this.events.publish('user:networkError');
+          break;
+        case 'auth/user-not-found':
+          this.loginError = error.message;
+          this.events.publish('user:loginError');
+          break;
+        default:
+          this.events.publish('Unknown');
       }
-    }, err => {
-      console.error('ERROR', err);
-    });
-
-    return seq;
+    };
   }
 
   /**
-   * Send a POST request to our signup endpoint with the data
-   * the user entered on the form.
+   * Send a POST request to our signup endpoint with
+   *  the data the user entered on the form.
+   * 
+   * NOTE: Look for a way to make this function simplier.
    */
-  signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
-
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
+  async signup(accountInfo: any) {
+    try {
+      let seq = await this.fbase.signUpUser(accountInfo);
+      if (seq.uid) {
+        this._loggedIn(seq);
+        accountInfo.uid = seq.uid;
+        this.saveUserInfo(accountInfo);
+        this.HAS_LOGGED_IN = true;
       }
-    }, err => {
-      console.error('ERROR', err);
-    });
+      return seq;
+    } catch (error) {
+      if (error.code) {
+        console.log(error);
+      }
+      console.log(error);
+    }
+  }
 
-    return seq;
+  // save user data to users collection
+  async saveUserInfo(accountInfo: UserModel) {
+    try {
+      let res = await this.fbase.saveUserData(accountInfo);
+      if (res) {
+        // process offline data here
+        this.HAS_LOGGED_IN = true;
+
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   /**
@@ -73,12 +114,19 @@ export class User {
    */
   logout() {
     this._user = null;
+    this.settings.setValue('isLoggedIn', false);
+    //this.events.publish('user:logout');
   }
 
   /**
    * Process a login/signup response to store user data
    */
   _loggedIn(resp) {
-    this._user = resp.user;
+    this.settings.setValue('uid', resp.uid);
+    this.settings.setValue('isLoggedIn', true).then(()=>{
+    this.events.publish('user:login');
+    });
+    this._user = resp;
   }
 }
+// {"option1":false,"option2":false,"option3":"3","option4":"Hello","hasSeenTutorial":true,"uid":"ywUc15e0WNSlhC7RCoXMaXXjQBs1"}	

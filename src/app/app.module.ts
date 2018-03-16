@@ -9,16 +9,36 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
+
+
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
+import { DATA_PROVIDER, firebaseConfig } from '../config';
+import { FirebaseProvider } from '../providers/providers';
+import { DataProvider } from '../providers/data/data';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+
+function getDataProvider(){
+  switch(DATA_PROVIDER){
+    case 'FIREBASE':
+    return FirebaseProvider;
+    default:
+    throw new Error('Unknown Provider');
+  }
 }
 
 export function provideSettings(storage: Storage) {
@@ -32,7 +52,10 @@ export function provideSettings(storage: Storage) {
     option1: true,
     option2: 'Ionitron J. Framework',
     option3: '3',
-    option4: 'Hello'
+    option4: 'Hello',
+    hasSeenTutorial: false,
+    uid: '',
+    isLoggedIn: false
   });
 }
 
@@ -50,8 +73,11 @@ export function provideSettings(storage: Storage) {
         deps: [HttpClient]
       }
     }),
+    
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    NgxErrorsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,12 +87,17 @@ export function provideSettings(storage: Storage) {
     Api,
     Items,
     User,
+    FirebaseProvider,
+    AngularFireAuth,
+    AngularFirestore,
     Camera,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: DataProvider, useClass: getDataProvider(), },    
+ 
   ]
 })
 export class AppModule { }

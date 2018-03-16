@@ -3,6 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
 import { SignupPage } from './signup';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { SignupPage } from './signup';
   ],
   imports: [
     IonicPageModule.forChild(SignupPage),
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    NgxErrorsModule
   ],
   exports: [
     SignupPage

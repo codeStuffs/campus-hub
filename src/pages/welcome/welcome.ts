@@ -19,11 +19,11 @@ export class WelcomePage {
   login() {
     // const modal = this.modalCtrl.create('LoginPage');
     // modal.present();
-    this.navCtrl.push('LoginPage');
+    this.navCtrl.setRoot('LoginPage');
   }
 
   signup() {
-    this.navCtrl.push('SignupPage');
+    this.navCtrl.setRoot('SignupPage');
   }
 
   ionViewWillLeave() {

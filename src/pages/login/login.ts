@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, ViewController } from 'ionic-angular';
-
+import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -24,34 +25,54 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
     public user: User,
+    public events: Events,
     public viewCtrl: ViewController,
     public toastCtrl: ToastController,
+    private auth: AngularFireAuth,
     public translateService: TranslateService) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
+    this.loginEvents();
   }
 
   // Attempt to login in through our User service
-  doLogin() {
-    this.user.login(this.account).subscribe((resp) => {
-      //this.viewCtrl.dismiss();
-      this.navCtrl.setRoot('HomePage');
-    }, (err) => {
-      //this.viewCtrl.dismiss();
-      this.navCtrl.setRoot('HomePage');
-      // Unable to log in
+  async doLogin() {
+    const res = await this.user.login(this.account);
+    //this.navCtrl.setRoot('HomePage');
+    if (res) {
+     
+    } else {
+      console.log(this.user.loginError);
       let toast = this.toastCtrl.create({
-        message: this.loginErrorString,
+        message: this.user.loginError,
         duration: 3000,
         position: 'top'
       });
       toast.present();
-    });
+    }
   }
 
-  dismiss(){
-    this.viewCtrl.dismiss();
+  loginEvents() {
+    // this might come in handy later.
+    this.events.subscribe('user:loginError', () => {
+      console.log('s');
+    });
+    this.events.subscribe('user:networkError', () => {
+      console.log('network error');
+    });
+    this.events.subscribe('Unknown', ()=>{
+      console.log('Uknown');
+    })
+    this.events.subscribe('user:login', ()=>{
+      this.navCtrl.setRoot(MainPage);
+    })
+  }
+
+  dismiss() {
+    this.viewCtrl.dismiss().catch(e => {
+      this.navCtrl.setRoot('WelcomePage');
+    });
   }
 }
