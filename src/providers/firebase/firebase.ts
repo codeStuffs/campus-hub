@@ -41,6 +41,7 @@ export class FirebaseProvider extends DataProvider {
         id        : userInfo.uid,
         email     : userInfo.email.toLowerCase(),
         gender    : userInfo.gender,
+        school:   userInfo.school,
         photo_url  : defaultPhoto,
       });
   }
