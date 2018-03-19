@@ -6,73 +6,73 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
+    <ion-navbar>
+        <button ion-button menuToggle icon-only>
       <ion-icon name='menu'></ion-icon>
     </button>
-    <ion-title>[Derek Pesto]</ion-title>
-  </ion-navbar>
+        <ion-title *ngIf="myInfo">{{myInfo.fname+ " " + myInfo.lname}}</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
 
-  <!--  <div class="spinner-container" >
+    <!--  <div class="spinner-container" >
     <ion-spinner></ion-spinner>
   </div>  USE LATER-->
-  <div>
-    <div class="hero slide-up" style="background-image: url(https://unsplash.it/1585/1080?random&element=DIV);">
-      <div class="overlay">
-        <div class="content">
-          <img src="../../assets/img/speakers/bear.jpg" class="avatar" [src]="">
-          <!-- <button><ion-icon name="camera"></ion-icon></button> -->
-          <h3>
-            <a class="light">first_name last_name </a>
-          </h3>
-          <h4>middle_name</h4>
+    <div *ngIf="myInfo">
+        <div class="hero slide-up" style="background-image: url(https://unsplash.it/1585/1080?random&element=DIV);">
+            <div class="overlay">
+                <div class="content">
+                    <img src="../../assets/img/speakers/bear.jpg" class="avatar" [src]="">
+                    <!-- <button><ion-icon name="camera"></ion-icon></button> -->
+                    <h3>
+                        <a class="light">{{myInfo.fname}} {{myInfo.lname}}</a>
+                    </h3>
+                    <!-- <h4>middle_name</h4> -->
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- hide the information page, show info on default -->
-    <div class="account-content">
-      <ion-list>
-        <!-- <ion-list-header>
+        <!-- hide the information page, show info on default -->
+        <div class="account-content">
+            <ion-list>
+                <!-- <ion-list-header>
          <button ion-button outline item-right >Edit</button>
         </ion-list-header> -->
-        <ion-item>
-          <ion-icon item-left name="ios-mail-outline" color="limegreen"></ion-icon>
-          Email :
-          <ion-note item-right>email</ion-note>
-        </ion-item>
+                <ion-item>
+                    <ion-icon item-left name="ios-mail-outline" color="limegreen"></ion-icon>
+                    Email :
+                    <ion-note item-right>email</ion-note>
+                </ion-item>
 
-        <ion-item>
-          <ion-icon item-left name="ios-call-outline" color="limegreen"></ion-icon>
-          Phone :
-          <ion-note item-right>phone</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-icon item-left name="ios-school-outline" color="limegreen"></ion-icon>
-          University:
-          <ion-note item-right>Kaunas University of Tech.</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-icon item-left name="ios-map-outline" color="limegreen"></ion-icon>
-          Location :
-          <ion-note item-right>location</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-icon item-left name="ios-briefcase-outline" color="limegreen"></ion-icon>
-          Faculty :
-          <ion-note item-right>Informatics Faculty</ion-note>
-        </ion-item>
-        <ion-item>
-          <button ion-button color="limegreen" style="background-color:#fe4332;">Log Out</button>
-        </ion-item>
-      </ion-list>
+                <ion-item>
+                    <ion-icon item-left name="ios-call-outline" color="limegreen"></ion-icon>
+                    Phone :
+                    <ion-note item-right>phone</ion-note>
+                </ion-item>
+                <ion-item>
+                    <ion-icon item-left name="ios-school-outline" color="limegreen"></ion-icon>
+                    University:
+                    <ion-note item-right>Kaunas University of Tech.</ion-note>
+                </ion-item>
+                <ion-item>
+                    <ion-icon item-left name="ios-map-outline" color="limegreen"></ion-icon>
+                    Location :
+                    <ion-note item-right>location</ion-note>
+                </ion-item>
+                <ion-item>
+                    <ion-icon item-left name="ios-briefcase-outline" color="limegreen"></ion-icon>
+                    Faculty :
+                    <ion-note item-right>Informatics Faculty</ion-note>
+                </ion-item>
+                <ion-item>
+                    <button ion-button color="limegreen" style="background-color:#fe4332;">Log Out</button>
+                </ion-item>
+            </ion-list>
+        </div>
+
     </div>
-
-  </div>
-  <!-- end of gallery -->
+    <!-- end of gallery -->
 
 </ion-content>

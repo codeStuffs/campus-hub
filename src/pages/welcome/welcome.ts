@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ModalController } from 'ionic-angular';
+import { Settings } from '../../providers/providers';
+import { MainPage } from '../pages';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -14,12 +16,24 @@ import { IonicPage, NavController, ModalController } from 'ionic-angular';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) { }
+  constructor(public navCtrl: NavController,
+    private settings: Settings,
+    public modalCtrl: ModalController) { }
 
   login() {
     // const modal = this.modalCtrl.create('LoginPage');
     // modal.present();
     this.navCtrl.setRoot('LoginPage');
+  }
+
+  ionViewWillEnter(){
+    this.settings.load().then(d=>{
+      if(d.isLoggedIn){
+        this.navCtrl.setRoot(MainPage);
+      }
+    }).catch(e=>{
+      console.log(e);
+    })
   }
 
   signup() {

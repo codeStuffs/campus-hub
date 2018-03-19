@@ -28,6 +28,9 @@
                     <div class="error" ngxError="required" when="touched">
                         Please enter your first name.
                     </div>
+                    <div class="error" ngxError="minlength" when="touched">
+                        Name length should be longer.
+                    </div>
                 </div>
 
                 <ion-item [ngClass]="{ invalid: lnameError.hasError('*', ['touched']) }">

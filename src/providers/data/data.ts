@@ -5,5 +5,4 @@ export abstract class DataProvider {
   abstract getNews(): Promise<any[]>;
   abstract getEvents(): Promise<any[]>;
   abstract getBuilding(buildingType: string): Promise<any[]>;
-  
 }

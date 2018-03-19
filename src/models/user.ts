@@ -4,6 +4,7 @@ export interface UserModel{
     email: string,
     password: string,
     cpassword: string,
+    avatar: string,
     phone: number,
     location: string,
     school: string,

@@ -7,6 +7,8 @@ import { Events } from 'ionic-angular';
 import { FirebaseProvider } from '../firebase/firebase';
 import { Settings } from '../settings/settings';
 import { UserModel } from '../../models/user';
+import { Observable } from 'rxjs/Observable';
+import "rxjs/add/operator/map";
 
 /**
  * Most apps have the concept of a User. This is a simple provider
@@ -38,10 +40,10 @@ export class User {
     public events: Events,
     public fbase: FirebaseProvider) {
 
-      settings.load().then(()=>{
+    settings.load().then(() => {
 
-      })
-     }
+    })
+  }
 
   /*
    * Send a POST request to our login endpoint with the data
@@ -109,6 +111,19 @@ export class User {
     }
   }
 
+  async getUserInfo(uid) {
+    try {
+      const resp = await this.fbase.getUserDetails(uid)
+        .snapshotChanges().map(aa => {
+          const id = aa.payload.id;
+          const data = aa.payload.data();
+          return { id, ...data };
+        });
+      return resp;
+    } catch (e) {
+      console.log(e);
+    }
+  }
   /**
    * Log the user out, which forgets the session
    */
@@ -123,8 +138,8 @@ export class User {
    */
   _loggedIn(resp) {
     this.settings.setValue('uid', resp.uid);
-    this.settings.setValue('isLoggedIn', true).then(()=>{
-    this.events.publish('user:login');
+    this.settings.setValue('isLoggedIn', true).then(() => {
+      this.events.publish('user:login');
     });
     this._user = resp;
   }

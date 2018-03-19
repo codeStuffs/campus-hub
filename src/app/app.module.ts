@@ -75,7 +75,11 @@ export function provideSettings(storage: Storage) {
     }),
     
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot(),
+    IonicStorageModule.forRoot({
+      name: "__icampushub",
+      storeName: "__icampushub",
+      driverOrder: ['websql']
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
     NgxErrorsModule,
   ],

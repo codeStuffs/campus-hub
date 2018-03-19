@@ -68,7 +68,8 @@ export class TutorialPage {
       });
     })
   }
-
+  //{"option1":true,"option2":"Ionitron J. Framework","option3":"3","option4":"Hello","hasSeenTutorial":true,"uid":"","isLoggedIn":false}	
+// {"option1":true,"option2":"Ionitron J. Framework","option3":"3","option4":"Hello","hasSeenTutorial":false,"uid":"","isLoggedIn":false}	
   onSlideChangeStart(slider) {
     this.showSkip = !slider.isEnd();
   }

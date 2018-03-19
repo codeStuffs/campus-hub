@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, ViewController } from 'ionic-angular';
 
-import { User } from '../../providers/providers';
+import { User, Settings } from '../../providers/providers';
 import { MainPage } from '../pages';
 import { UserModel } from '../../models/user';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
@@ -34,13 +34,14 @@ export class SignupPage {
   private signupErrorString: string;
 
   constructor(fb: FormBuilder, public navCtrl: NavController,
+    private settings: Settings,
     public user: User,
     public viewCtrl: ViewController,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
 
     this.form = fb.group({
-      fname: ['', Validators.compose([Validators.required])],
+      fname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       lname: ['', Validators.compose([Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.email, Validators.pattern(EMAIL_REGEX)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
@@ -58,6 +59,16 @@ export class SignupPage {
     })
   }
 
+  ionViewWillEnter(){
+    this.settings.load().then(d=>{
+      if(d.isLoggedIn){
+        this.navCtrl.setRoot(MainPage);
+      }
+    }).catch(e=>{
+      console.log(e);
+    })
+  }
+  
   passwordMatchValidator2(control: AbstractControl): { [key: string]: boolean } {
 
     const password = control.get('password');
@@ -115,6 +126,7 @@ export class SignupPage {
       location: formData.location as string,
       school: formData.location as string,
       uid: '',
+      avatar: '',
       gender: formData.gender as string
     }
   }
