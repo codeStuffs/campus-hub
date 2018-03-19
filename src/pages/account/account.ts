@@ -36,23 +36,27 @@ export class AccountPage {
     const userd = this.user.getUserInfo(uid);
     userd.then(d => {
       let userData: any;
-      d.subscribe((s)=>{
-       userData = s;
-       this.myInfo = userData;
-       this.event.publish('loading:Complete');
+      d.subscribe((s) => {
+        userData = s;
+        this.myInfo = userData;
+        this.event.publish('loading:Complete');
       })
     })
   }
 
 
-  showLoading(){
-  let loading = this.loadingCtrl.create({
-    content: 'Please waiting',
-  })
+  showLoading() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please waiting',
+    })
 
-  loading.present();
-  this.event.subscribe('loading:Complete',()=>{
-    loading.dismiss();
-  })
+    loading.present();
+    this.event.subscribe('loading:Complete', () => {
+      loading.dismiss();
+    })
+  }
+
+  logout(){
+    
   }
 }

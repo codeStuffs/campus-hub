@@ -130,9 +130,9 @@ export class MyApp {
     // this.events.subscribe('user:signup', ()=>{
 
     // })
-    // this.events.subscribe('user:logout', () => {
-   
-    // });
+    this.events.subscribe('user:logout', () => {
+      this.nav.setRoot('WelcomePage');
+    });
   }
   initTranslate() {
     // Set the default language for translation strings, and the current language.

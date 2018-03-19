@@ -130,7 +130,7 @@ export class User {
   logout() {
     this._user = null;
     this.settings.setValue('isLoggedIn', false);
-    //this.events.publish('user:logout');
+    this.events.publish('user:logout');
   }
 
   /**
