@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Settings, User } from '../../providers/providers';
+import { WelcomePage } from '../pages';
 
 /**
  * Generated class for the DirectoryPage page.
@@ -15,11 +17,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DirectoryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public settings:Settings) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DirectoryPage');
+  }
+
+  ionViewWillEnter(){
+    this.settings.load().then(d=>{
+      if(!d.isLoggedIn){
+        this.navCtrl.setRoot(WelcomePage);
+      }
+    }).catch(e=>{
+      /*console.log(e);*/
+    })
   }
 
 }

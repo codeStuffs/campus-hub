@@ -4,6 +4,7 @@ import { IonicPage, NavController, ToastController, ViewController } from 'ionic
 import { Events } from 'ionic-angular';
 import { User, Settings } from '../../providers/providers';
 import { MainPage } from '../pages';
+import { WelcomePage } from '../pages';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
@@ -46,7 +47,7 @@ export class LoginPage {
     const res = await this.user.login(this.account);
     //this.navCtrl.setRoot('HomePage');
     if (res) {
-     
+
     } else {
       console.log(this.user.loginError);
       let toast = this.toastCtrl.create({
@@ -69,7 +70,7 @@ export class LoginPage {
   }
 
   ionViewDidEnter(){
-    console.log('yeah');
+    /*console.log('yeah');*/
   }
 
   loginEvents() {

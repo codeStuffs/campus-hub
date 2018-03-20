@@ -76,7 +76,7 @@ export class User {
   /**
    * Send a POST request to our signup endpoint with
    *  the data the user entered on the form.
-   * 
+   *
    * NOTE: Look for a way to make this function simplier.
    */
   async signup(accountInfo: any) {
@@ -115,13 +115,13 @@ export class User {
     try {
       const resp = await this.fbase.getUserDetails(uid)
         .snapshotChanges().map(aa => {
-          const id = aa.payload.id;
+          const id =/*console.log(e);*/ aa.payload.id;
           const data = aa.payload.data();
           return { id, ...data };
         });
       return resp;
     } catch (e) {
-      console.log(e);
+
     }
   }
   /**
@@ -144,4 +144,4 @@ export class User {
     this._user = resp;
   }
 }
-// {"option1":false,"option2":false,"option3":"3","option4":"Hello","hasSeenTutorial":true,"uid":"ywUc15e0WNSlhC7RCoXMaXXjQBs1"}	
+// {"option1":false,"option2":false,"option3":"3","option4":"Hello","hasSeenTutorial":true,"uid":"ywUc15e0WNSlhC7RCoXMaXXjQBs1"}

@@ -6,7 +6,8 @@ import { Config, Nav, Platform, Events } from 'ionic-angular';
 
 
 import { FirstRunPage } from '../pages/pages';
-import { Settings } from '../providers/providers';
+import { Settings,User } from '../providers/providers';
+
 
 /*<ion-buttons start>
 <button danger outline (click)="resetItems()">
@@ -49,7 +50,20 @@ import { Settings } from '../providers/providers';
           <ion-icon name="{{p.icon}}" item-left></ion-icon>
           {{p.title}}
         </button>
+        
+        
       </ion-list>
+      
+      <ion-buttons start>
+        <button ion-button menuClose="left" 
+                style="background: none; font-size: 2rem; margin-top: 50px;
+                color: #fe4332 !important;margin-left: 40%;margin-right: 40%;
+                border-radius: 30px !important;"
+                (click)="logOutUid()">
+          <ion-icon name="power"></ion-icon>
+        </button>
+        
+      </ion-buttons>
     </ion-content>
 
   </ion-menu>
@@ -72,7 +86,7 @@ export class MyApp {
     { title: 'Facilities', component: 'FacilitiesPage', icon: 'medal' },
     /* { title: 'Search', component: 'SearchPage' },
      { title: 'Signup', component: 'SignupPage' },,*/
-     { title: 'Login', component: 'LoginPage' },
+     /*{ title: 'Login', component: 'LoginPage' },*/
     /* { title: 'Master Detail', component: 'ListMasterPage' },
      { title: 'Menu', component: 'MenuPage' ,index: 0, icon: 'calendar'  },*/
     { title: 'Directory', component: 'DirectoryPage', icon: 'contacts' },
@@ -87,6 +101,7 @@ export class MyApp {
     private platform: Platform,
     private statusBar: StatusBar,
     private events: Events,
+    public user: User,
     private splashScreen: SplashScreen) {
 
      this.settings.load().then(() => {
@@ -110,6 +125,7 @@ export class MyApp {
       });
     this.initTranslate();
     this.listenToLogInEvents();
+
   }
 
 
@@ -168,5 +184,10 @@ export class MyApp {
 
   opensettings(page) {
     this.nav.setRoot(page);
+  }
+
+  logOutUid(){
+    this.user.logout();
+    //TODO: Prevent going back after logout
   }
 }
