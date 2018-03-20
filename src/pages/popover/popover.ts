@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import { Settings, User } from '../../providers/providers';
 
 /**
  * Generated class for the PopoverPage page.
@@ -16,16 +17,25 @@ import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angula
 export class PopoverPage {
   items:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public viewCtrl: ViewController,
+              public user: User,) {
     this.items = this.navParams.get('listData');
-    console.log(this.items);
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PopoverPage');
+    /*console.log('ionViewDidLoad PopoverPage');*/
   }
 
   dismiss(item) {
+    let data = item;
+    this.viewCtrl.dismiss(data);
+  }
+
+  logOutUid(item){
+    this.user.logout();
     let data = item;
     this.viewCtrl.dismiss(data);
   }

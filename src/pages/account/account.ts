@@ -82,7 +82,7 @@ export class AccountPage {
       ev: myEvent
     });
   }
-//talk to me, what is happening there
+
   logOutUid(){
     this.user.logout();
   }
