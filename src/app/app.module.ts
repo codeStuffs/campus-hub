@@ -95,12 +95,7 @@ export function provideSettings(storage: Storage) {
     User,
     FirebaseProvider,
     AngularFireAuth,
-<<<<<<< HEAD
-    AngularFirestore,
-    NetworkProvider,
-=======
     /*AngularFirestore,*/
->>>>>>> 4efec18c1c06d078cf295d71c2d9ca764bf77d73
     Camera,
     SplashScreen,
     StatusBar,
@@ -108,12 +103,8 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: DataProvider, useClass: getDataProvider(), },
-<<<<<<< HEAD
     NetworkProvider,    
  
-=======
-
->>>>>>> 4efec18c1c06d078cf295d71c2d9ca764bf77d73
   ]
 })
 export class AppModule { }
