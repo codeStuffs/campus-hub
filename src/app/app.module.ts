@@ -14,6 +14,7 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 
 import { Items } from '../mocks/providers/items';
@@ -74,7 +75,7 @@ export function provideSettings(storage: Storage) {
         deps: [HttpClient]
       }
     }),
-    
+
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot({
       name: "__icampushub",
@@ -82,7 +83,7 @@ export function provideSettings(storage: Storage) {
       driverOrder: ['websql', 'indexeddb']
     }),
     AngularFireModule.initializeApp(firebaseConfig),
-    NgxErrorsModule,
+    AngularFirestoreModule,NgxErrorsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -94,8 +95,12 @@ export function provideSettings(storage: Storage) {
     User,
     FirebaseProvider,
     AngularFireAuth,
+<<<<<<< HEAD
     AngularFirestore,
     NetworkProvider,
+=======
+    /*AngularFirestore,*/
+>>>>>>> 4efec18c1c06d078cf295d71c2d9ca764bf77d73
     Camera,
     SplashScreen,
     StatusBar,
@@ -103,8 +108,12 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: DataProvider, useClass: getDataProvider(), },
+<<<<<<< HEAD
     NetworkProvider,    
  
+=======
+
+>>>>>>> 4efec18c1c06d078cf295d71c2d9ca764bf77d73
   ]
 })
 export class AppModule { }

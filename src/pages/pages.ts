@@ -10,3 +10,4 @@ export const Tab1Root = 'NewsandeventsPage'; //'ListMasterPage';
 export const Tab2Root = 'BuildingsPage';
 export const Tab3Root = 'FaciltiesPage';
 export const Tab4Root = 'SettingsPage';
+export const WelcomePage = 'WelcomePage';

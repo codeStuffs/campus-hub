@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { Settings } from '../../providers/providers';
+import { WelcomePage } from '../pages';
 
 /**
  * Generated class for the BuildingsPage page.
@@ -14,17 +16,27 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
   templateUrl: "buildings.html"
 })
 export class BuildingsPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,public settings: Settings) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad BuildingsPage");
   }
 
-  /* since the building list page is generic we pass in 
+  /* since the building list page is generic we pass in
    * a param which will be used to
    * determine the type of building we are viewing.
    * In cases like faculites and dorms
   */
+
+  ionViewWillEnter(){
+    this.settings.load().then(d=>{
+      if(!d.isLoggedIn){
+        this.navCtrl.setRoot(WelcomePage);
+      }
+    }).catch(e=>{
+      /*console.log(e);*/
+    })
+  }
 
   openPage(page: string): void {
     switch (page) {

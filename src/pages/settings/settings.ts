@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { WelcomePage } from '../pages';
 
 import { Settings } from '../../providers/providers';
 
@@ -87,6 +88,14 @@ export class SettingsPage {
 
       this._buildForm();
     });
+
+    this.settings.load().then(d=>{
+      if(!d.isLoggedIn){
+        this.navCtrl.setRoot(WelcomePage);
+      }
+    }).catch(e=>{
+      /*console.log(e);*/
+    })
   }
 
   ngOnChanges() {
