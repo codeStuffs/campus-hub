@@ -24,6 +24,7 @@ import { MyApp } from './app.component';
 import { DATA_PROVIDER, firebaseConfig } from '../config';
 import { FirebaseProvider } from '../providers/providers';
 import { DataProvider } from '../providers/data/data';
+import { NetworkProvider } from '../providers/network/network';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -78,7 +79,7 @@ export function provideSettings(storage: Storage) {
     IonicStorageModule.forRoot({
       name: "__icampushub",
       storeName: "__icampushub",
-      driverOrder: ['websql']
+      driverOrder: ['websql', 'indexeddb']
     }),
     AngularFireModule.initializeApp(firebaseConfig),
     NgxErrorsModule,
@@ -94,13 +95,15 @@ export function provideSettings(storage: Storage) {
     FirebaseProvider,
     AngularFireAuth,
     AngularFirestore,
+    NetworkProvider,
     Camera,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    { provide: DataProvider, useClass: getDataProvider(), },    
+    { provide: DataProvider, useClass: getDataProvider(), },
+    NetworkProvider,    
  
   ]
 })
