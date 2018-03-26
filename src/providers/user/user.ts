@@ -97,6 +97,19 @@ export class User {
     }
   }
 
+  async updateAccount(data){
+
+    try {
+      let res = this.fbase.updateUserAccount(data);
+      if(res){
+        this.events.publish('user:updated');
+      }
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
   // save user data to users collection
   async saveUserInfo(accountInfo: UserModel) {
     try {

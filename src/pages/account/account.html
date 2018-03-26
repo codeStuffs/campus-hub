@@ -11,12 +11,11 @@
           <ion-icon name='menu'></ion-icon>
         </button>
         <ion-title *ngIf="myInfo">{{myInfo.fname+ " " + myInfo.lname}}</ion-title>
-      <ion-buttons end>
-        <button ion-button menuClose="left" style="background: none; font-size: 2.5rem; margin-right: 10px;"
-                (click)="presentPopover($event)">
+        <ion-buttons end>
+            <button ion-button class="popover-btn" (click)="presentPopover($event)">
           <ion-icon name="more"></ion-icon>
         </button>
-      </ion-buttons>
+        </ion-buttons>
     </ion-navbar>
 
 </ion-header>
@@ -48,28 +47,28 @@
         </ion-list-header> -->
                 <ion-item>
                     <ion-icon item-left name="ios-mail-outline" color="limegreen"></ion-icon>
-                    Email :
+                    <h3>Email :</h3>
                     <ion-note item-right>{{myInfo.email}}</ion-note>
                 </ion-item>
 
                 <ion-item>
                     <ion-icon item-left name="ios-call-outline" color="limegreen"></ion-icon>
-                    Phone :
+                    <h3>Phone :</h3>
                     <ion-note item-right>{{myInfo.phone}}</ion-note>
                 </ion-item>
                 <ion-item>
                     <ion-icon item-left name="ios-school-outline" color="limegreen"></ion-icon>
-                    University:
-                    <ion-note item-right>{{myInfo.school| slice:0:23}}...</ion-note>
+                    <h3>University:</h3>
+                    <ion-note item-right style="font-size:13px">{{myInfo.school}}</ion-note>
                 </ion-item>
                 <ion-item>
                     <ion-icon item-left name="ios-map-outline" color="limegreen"></ion-icon>
-                    Location :
+                    <h3>Location :</h3>
                     <ion-note item-right>{{myInfo.location}}</ion-note>
                 </ion-item>
                 <ion-item>
                     <ion-icon item-left name="ios-briefcase-outline" color="limegreen"></ion-icon>
-                    Faculty :
+                    <h3>Faculty :</h3>
                     <ion-note item-right>{{myInfo.faculty}}</ion-note>
                 </ion-item>
             </ion-list>

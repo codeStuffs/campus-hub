@@ -66,19 +66,6 @@
         <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
       </ion-item>
       -->
-                <ion-item [ngClass]="{ invalid: schoolError.hasError('*', ['touched']) }">
-                    <ion-label floating>School</ion-label>
-                    <ion-select name="school" formControlName="school">
-                        <ion-option value="nes">School One</ion-option>
-                        <ion-option value="n64">School two</ion-option>
-                    </ion-select>
-                </ion-item>
-                <div ngxErrors="school" #schoolError="ngxErrors">
-                    <div class="error" ngxError="required" when="touched">
-                        Please select your university.
-                    </div>
-                </div>
-
 
                 <ion-item [ngClass]="{ invalid: passwordError.hasError('*', ['touched']) }">
                     <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
@@ -97,6 +84,9 @@
                 <div ngxErrors="cpassword" #cpasswordError="ngxErrors">
                     <div class="error" [ngxError]="['minlength','required']" when="touched">
                         Password should be at least 6 characters
+                    </div>
+                    <div class="error" [ngxError]="['mismatch']" when="touched">
+                        Password dont match.
                     </div>
                 </div>
 
@@ -120,15 +110,31 @@
                     <ion-input type="text" formControlName="phone" name="phone"></ion-input>
                 </ion-item>
 
-                <ion-item>
-                    <ion-label floating>{{ 'CITY' | translate }}</ion-label>
-                    <ion-input type="text" formControlName="location" name="location"></ion-input>
+                <ion-item [ngClass]="{ invalid: schoolError.hasError('*', ['touched']) }">
+                    <ion-label floating>School</ion-label>
+                    <ion-select name="school" formControlName="school">
+                        <ion-option value="Eastern Mediterranean University">Eastern Mediterranean University</ion-option>
+                        <ion-option value="Kaunas Univeristy of Technology">Kaunas Univeristy of Technology</ion-option>
+
+                    </ion-select>
                 </ion-item>
+                <div ngxErrors="school" #schoolError="ngxErrors">
+                    <div class="error" ngxError="required" when="touched">
+                        Please select your university.
+                    </div>
+                </div>
 
                 <ion-item>
                     <ion-label floating>{{ 'FACULTY' | translate }}</ion-label>
                     <ion-input type="text" formControlName="faculty" name="faculty"></ion-input>
                 </ion-item>
+
+                <ion-item>
+                    <ion-label floating>{{ 'CITY' | translate }}</ion-label>
+                    <ion-input type="text" formControlName="location" name="location"></ion-input>
+                </ion-item>
+
+
 
                 <div padding>
                     <button [disabled]="!form.valid" ion-button color="primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>

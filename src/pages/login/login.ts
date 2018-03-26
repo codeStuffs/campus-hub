@@ -73,6 +73,13 @@ export class LoginPage {
     /*console.log('yeah');*/
   }
 
+  ionViewDidLeave(){
+    this.events.unsubscribe('user:loginError');
+    this.events.unsubscribe('user:networkError');
+    this.events.unsubscribe('Unknown');
+    this.events.unsubscribe('user:login');
+  }
+
   loginEvents() {
     // this might come in handy later.
     this.events.subscribe('user:loginError', () => {

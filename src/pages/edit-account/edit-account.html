@@ -1,0 +1,113 @@
+<ion-header no-border>
+
+    <ion-navbar>
+        <ion-title>{{ 'EDIT_ACCOUNT' | translate }}</ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+      <span ion-text color="primary" showWhen="ios">Cancel</span>
+      <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+    </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (submit)="editAccount()" class="update-form" [formGroup]="form">
+        <ion-list>
+
+            <ion-item [ngClass]="{ invalid: fnameError.hasError('*', ['touched']) }">
+                <ion-label floating>{{ 'FIRSTNAME' | translate }}</ion-label>
+                <ion-input type="text" formControlName="fname" name="firstname"></ion-input>
+            </ion-item>
+            <div ngxErrors="fname" #fnameError="ngxErrors">
+                <div class="error" ngxError="required" when="touched">
+                    Please enter your first name.
+                </div>
+                <div class="error" ngxError="minlength" when="touched">
+                    Name length should be longer.
+                </div>
+            </div>
+
+            <ion-item [ngClass]="{ invalid: lnameError.hasError('*', ['touched']) }">
+                <ion-label floating>{{ 'LASTNAME' | translate }}</ion-label>
+                <ion-input type="text" formControlName="lname" name="lastname"></ion-input>
+            </ion-item>
+            <div ngxErrors="lname" #lnameError="ngxErrors">
+                <div class="error" ngxError="required" when="touched">
+                    Please enter your last name.
+                </div>
+            </div>
+
+
+
+            <!-- <ion-item [ngClass]="{ invalid: passwordError.hasError('*', ['touched']) }">
+                <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+                <ion-input type="password" formControlName="password" name="password"></ion-input>
+            </ion-item>
+            <div ngxErrors="password" #passwordError="ngxErrors">
+                <div class="error" [ngxError]="['minlength','required']" when="touched">
+                    Password should be at least 6 characters
+                </div>
+            </div>
+
+            <ion-item [ngClass]="{ invalid: cpasswordError.hasError('*', ['touched']) }">
+                <ion-label floating>Confirm password</ion-label>
+                <ion-input type="password" formControlName="cpassword" name="cpassword"></ion-input>
+            </ion-item>
+            <div ngxErrors="cpassword" #cpasswordError="ngxErrors">
+                <div class="error" [ngxError]="['minlength','required']" when="touched">
+                    Password should be at least 6 characters
+                </div>
+            </div> -->
+
+
+            <ion-item [ngClass]="{ invalid: genderError.hasError('*', ['touched']) }">
+                <ion-label floating>Gender</ion-label>
+                <ion-select name="gender" formControlName="gender">
+
+                    <ion-option value="Male">Male</ion-option>
+                    <ion-option value="Female">Female</ion-option>
+                </ion-select>
+            </ion-item>
+            <div ngxErrors="gender" #genderError="ngxErrors">
+                <div class="error" ngxError="required" when="touched">
+                    Please select your gender
+                </div>
+            </div>
+
+            <ion-item>
+                <ion-label floating>{{ 'PHONE' | translate }}</ion-label>
+                <ion-input type="text" formControlName="phone" name="phone"></ion-input>
+            </ion-item>
+
+            <ion-item [ngClass]="{ invalid: schoolError.hasError('*', ['touched']) }">
+                <ion-label floating>School</ion-label>
+                <ion-select name="school" formControlName="school">
+                    <ion-option *ngFor="let school of schools" [selected]="form.controls['school'].value === school.name" [value]="school.name">{{school.name}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <div ngxErrors="school" #schoolError="ngxErrors">
+                <div class="error" ngxError="required" when="touched">
+                    Please select your university.
+                </div>
+            </div>
+
+            <ion-item>
+                <ion-label floating>{{ 'CITY' | translate }}</ion-label>
+                <ion-input type="text" formControlName="location" name="location"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>{{ 'FACULTY' | translate }}</ion-label>
+                <ion-input type="text" formControlName="faculty" name="faculty"></ion-input>
+            </ion-item>
+
+            <div padding>
+                <button [disabled]="!form.valid" ion-button color="primary" block>{{ 'UPDATE_BTN' | translate }}</button>
+            </div>
+
+        </ion-list>
+    </form>
+</ion-content>

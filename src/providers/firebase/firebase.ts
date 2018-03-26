@@ -39,11 +39,18 @@ export class FirebaseProvider extends DataProvider {
   saveUserData(userInfo: UserModel) {
     userInfo.avatar = 'assets/avatar.png';
     userInfo.email.toLowerCase();
+    userInfo.password = "";
     return this.afStore.collection<UserModel>('users')
       .doc(userInfo.uid)
       .set(userInfo);
   }
 
+  updateUserAccount(userData){
+    console.log(userData);
+    return this.afStore.collection('users')
+    .doc(userData.uid)
+    .update(userData);
+  }
   // {"option1":true,"option2":"Ionitron J. Framework","option3":"3","option4":"Hello","hasSeenTutorial":true,"uid":"PkOpeq0Ro7RmonKuf4ZDDKenDn22","isLoggedIn":true}	
 
   constructor(public http: HttpClient,

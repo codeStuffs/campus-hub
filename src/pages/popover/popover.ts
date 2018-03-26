@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
 import { Settings, User } from '../../providers/providers';
 
-/**
- * Generated class for the PopoverPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,12 +10,15 @@ import { Settings, User } from '../../providers/providers';
 })
 export class PopoverPage {
   items:any;
+  userData: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
+              public modalCtrl: ModalController,
               public user: User,) {
-    this.items = this.navParams.get('listData');
+    this.userData = this.navParams.get('data');
+
 
   }
 
@@ -32,6 +29,16 @@ export class PopoverPage {
   dismiss(item) {
     let data = item;
     this.viewCtrl.dismiss(data);
+  }
+
+  editProfile(userData){
+    this.viewCtrl.dismiss();
+    let modal = this.modalCtrl.create('EditAccountPage',{
+      data: this.userData
+    });
+
+    modal.present();
+
   }
 
   logOutUid(item){

@@ -51,11 +51,26 @@ export class SignupPage {
       faculty: [''],
       location: [''],
       school: [''],
-    }, this.passwordMatchValidator2.bind(this));
+    });
 
 
     this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
       this.signupErrorString = value;
+    });
+
+    this.form.valueChanges.subscribe(val=>{
+      console.log(val.password);
+      if(this.form.controls.password){
+        const er = this.form.controls.password.value === this.form.controls.cpassword.value
+        ? null : { mismatch: true };
+        if(er!== null){
+          this.form.get('password').setErrors(er);
+          this.form.get('cpassword').setErrors(er);
+        }else{
+          //this.form.controls.password.get('cpassword').getError('required');
+          //this.form.controls.cpassword.get('password').getError('minlength');
+        }
+      }
     })
   }
 
@@ -67,25 +82,6 @@ export class SignupPage {
     }).catch(e=>{
       console.log(e);
     })
-  }
-  
-  passwordMatchValidator2(control: AbstractControl): { [key: string]: boolean } {
-
-    const password = control.get('password');
-    const confirm_password = control.get('cpassword');
-    console.log(password);
-    if (!password || !confirm_password) {
-      return null;
-    }
-    const dd = password.value === confirm_password.value
-      ? null : { mismatch: true };
-    if (dd !== null) {
-      control.get('cpassword').setErrors(dd);
-    } else {
-      control.get('cpassword').getError('required');
-      control.get('cpassword').getError('minlength');
-    }
-    return dd;
   }
 
   async doSignup() {
@@ -120,11 +116,10 @@ export class SignupPage {
       lname: formData.lname as string,
       email: formData.email as string,
       password: formData.password as string,
-      cpassword: formData.cpassword as string,
       phone: formData.phone as number,
       faculty: formData.faculty as string,
       location: formData.location as string,
-      school: formData.location as string,
+      school: formData.school as string,
       uid: '',
       avatar: '',
       gender: formData.gender as string
