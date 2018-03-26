@@ -26,6 +26,7 @@ import { DATA_PROVIDER, firebaseConfig } from '../config';
 import { FirebaseProvider } from '../providers/providers';
 import { DataProvider } from '../providers/data/data';
 import { NetworkProvider } from '../providers/network/network';
+import { BuildingProvider } from '../providers/building/building';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -103,7 +104,8 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: DataProvider, useClass: getDataProvider(), },
-    NetworkProvider,    
+    NetworkProvider,
+    BuildingProvider,    
  
   ]
 })

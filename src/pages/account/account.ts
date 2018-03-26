@@ -73,7 +73,7 @@ export class AccountPage {
     let data = this.myInfo;
     data['uid'] = this.userId;
     /*let listData = [{title:"Edit Profile",id:1},{title:"Logout",id:2}];*/
-    let popover = this.popoverCtrl.create("PopoverPage",{data:  this.myInfo});
+    let popover = this.popoverCtrl.create("PopoverPage",{data:  data});
     popover.present({
       ev: myEvent
     });

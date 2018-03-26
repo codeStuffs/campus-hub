@@ -5,6 +5,7 @@ import {
   NavParams,
   ModalController
 } from "ionic-angular";
+import { BuildingProvider } from "../../providers/providers";
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ export class BuildingsListPage {
   data: any; // data could be of any type. But for now it will be just a string
   constructor(
     public navCtrl: NavController,
+    public buildingProvider: BuildingProvider,
     public navParams: NavParams,
     public modalCtrl: ModalController
   ) {
@@ -24,7 +26,7 @@ export class BuildingsListPage {
 
   ionViewDidLoad() {}
 
-  openFaculty() {
+  openBuildingDetail() {
     const details = {
       name: "My Faculty",
       pictures: {},

@@ -10,9 +10,13 @@ import { UserModel } from '../../models/user';
 export class FirebaseProvider extends DataProvider {
 
 
-  getBuilding(buildingType: string): Promise<any[]> {
-    return Promise.resolve([]);
+  getBuildings(schl) {
+    return this.afStore.collection('buildings').doc(`${schl}/`);
   }
+
+  getBuildingDetails(data){
+    return this.afStore.collection('buildings').doc(`${data.schoolId}/`);
+  } 
 
   getEvents(): Promise<any[]> {
     return Promise.resolve([]);
@@ -46,7 +50,6 @@ export class FirebaseProvider extends DataProvider {
   }
 
   updateUserAccount(userData){
-    console.log(userData);
     return this.afStore.collection('users')
     .doc(userData.uid)
     .update(userData);

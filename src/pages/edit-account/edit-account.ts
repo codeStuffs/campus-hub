@@ -18,8 +18,8 @@ export class EditAccountPage {
   userData: UserModel;
 
   schools = [
-    {name: "Eastern Mediterranean University"},
-    {name: "Kaunas Univeristy of Technology"}
+    { name: "Eastern Mediterranean University" },
+    { name: "Kaunas Univeristy of Technology" }
   ]
   constructor(public navCtrl: NavController,
     fb: FormBuilder, public translateService: TranslateService,
@@ -30,8 +30,6 @@ export class EditAccountPage {
     private events: Events,
     public navParams: NavParams) {
     this.userData = this.navParams.get('data') || this.dismiss();
-
-
     this.form = fb.group({
       fname: [this.userData.fname, Validators.compose([Validators.required, Validators.minLength(2)])],
       lname: [this.userData.lname, Validators.compose([Validators.required])],
@@ -41,8 +39,6 @@ export class EditAccountPage {
       location: [this.userData.location],
       school: [this.userData.school],
     });
-
-
   }
 
   ionViewDidLoad() {
@@ -62,14 +58,15 @@ export class EditAccountPage {
   async editAccount() {
 
     let data = this.prepareData();
-    const res = await this.user.updateAccount(data);
-    if (res) {
-      this.updateToast('Account Updated');
-    } else {
-      // Unable to sign up
-      this.updateToast('Error Updating Account');
-
-    }
+    let res = await this.user.updateAccount(data)
+      .then(d => {
+        this.updateToast('Account Updated');
+        setTimeout(() => {
+          this.dismiss();
+        }, 2500);
+      }).catch(error => {
+        this.updateToast('Error Updating Account');
+      });
   }
 
   updateToast(msg: string) {

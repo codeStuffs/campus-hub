@@ -104,7 +104,7 @@ export class User {
       if(res){
         this.events.publish('user:updated');
       }
-      
+      return res;
     } catch (error) {
       console.log(error);
     }
@@ -117,7 +117,7 @@ export class User {
       if (res) {
         // process offline data here
         this.HAS_LOGGED_IN = true;
-
+// 
       }
     } catch (error) {
       console.log(error);

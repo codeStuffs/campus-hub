@@ -18,8 +18,7 @@ export class PopoverPage {
               public modalCtrl: ModalController,
               public user: User,) {
     this.userData = this.navParams.get('data');
-
-
+    console.log(this.userData);
   }
 
   ionViewDidLoad() {
