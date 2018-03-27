@@ -57,7 +57,6 @@ export class BuildingsPage {
       /*console.log(e);*/
     })
   }
-
   openPage(page: string): void {
 
     if (this.myInfo.school) {
@@ -67,9 +66,11 @@ export class BuildingsPage {
       }
       switch (page) {
         case "faculties":
+          data['id'] = 'faculties';
           this.navCtrl.push("BuildingsListPage", { data: data });
           break;
         case "dorms":
+          data['id'] = 'dorms';
           this.navCtrl.push("BuildingsListPage", { data: data });
           break;
         case "io":

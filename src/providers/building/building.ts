@@ -12,16 +12,9 @@ export class BuildingProvider {
 
 
   async getBuilding(sch) {
-
     try {
-      let resp = await this.afStore.getBuildings(sch)
-        .snapshotChanges().map(aa => {
-          const id =/*console.log(e);*/ aa.payload.id;
-          const data = aa.payload.data();
-          return { id, ...data };
-        });
+      let resp = await this.afStore.getBuildings(sch);
       return resp;
-
     } catch (error) {
       console.log(error);
     }
