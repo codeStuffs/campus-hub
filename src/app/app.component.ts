@@ -96,7 +96,8 @@ export class MyApp {
 
   ];
 
-  constructor(private translate: TranslateService,  public settings: Settings,
+  constructor(private translate: TranslateService, 
+    public settings: Settings,
     private config: Config,
     private platform: Platform,
     private statusBar: StatusBar,

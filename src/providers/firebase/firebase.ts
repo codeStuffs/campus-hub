@@ -20,7 +20,7 @@ export class FirebaseProvider extends DataProvider {
       id
     ).switchMap(([id]) =>
       this.afStore.collection('buildings', ref => {
-        let query: firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
+        let query:  firebase.firestore.Query = ref; //firebase.firestore.CollectionReference |
         if (id) { query = query.where('buildingType', '==', `${data.id}`) };
         return query; //.doc(`${data.schoolId}/`)
       }).valueChanges()
