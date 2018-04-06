@@ -8,7 +8,7 @@ import { UserModel } from '../../models/user';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/combineLatest';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class FirebaseProvider extends DataProvider {
@@ -68,7 +68,7 @@ export class FirebaseProvider extends DataProvider {
       .doc(userData.uid)
       .update(userData);
   }
-  // {"option1":true,"option2":"Ionitron J. Framework","option3":"3","option4":"Hello","hasSeenTutorial":true,"uid":"PkOpeq0Ro7RmonKuf4ZDDKenDn22","isLoggedIn":true}	
+  // {"option1":true,"option2":"Ionitron J. Framework","option3":"3","option4":"Hello","hasSeenTutorial":true,"uid":"PkOpeq0Ro7RmonKuf4ZDDKenDn22","isLoggedIn":true}
 
   constructor(public http: HttpClient,
     private afAuth: AngularFireAuth,
